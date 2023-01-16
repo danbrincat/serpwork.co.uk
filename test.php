@@ -1,13 +1,3 @@
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>serpwork.co.uk</title>
-<meta content="width=device-width, initial-scale=1" name="viewport" />
-<meta name="robots" content="noindex">
-</head>
-<body>
-<p>Hello World!</p>
-<p>This is a test</p>
 <?php
 // You can download this file from here https://cdn.dataforseo.com/v3/examples/php/php_RestClient.zip
 require('RestClient.php');
@@ -78,5 +68,3 @@ try {
 }
 $client = null;
 ?>
-</body>
-</html>
