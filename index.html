@@ -11,35 +11,45 @@
 <!--<?php include 'test.php'?>-->
 
 <?php
-
-$curl = curl_init();
-
-curl_setopt_array($curl, array(
-  CURLOPT_URL => 'https://api.dataforseo.com/v3/serp/google/organic/live/advanced?keyword=weather%20forecast',
-  CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_ENCODING => '',
-  CURLOPT_MAXREDIRS => 10,
-  CURLOPT_TIMEOUT => 0,
-  CURLOPT_FOLLOWLOCATION => true,
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-  CURLOPT_CUSTOMREQUEST => 'POST',
-  CURLOPT_POSTFIELDS =>'[
-    {
-        "language_name": "English (United Kingdom)",
-        "location_name": "London,England,United Kingdom",
-        "keyword": "rank checker"
-    }
-]',
-  CURLOPT_HTTPHEADER => array(
-    'Content-Type: application/json',
-    'Authorization: Basic ZGFuLmJyaW5jYXQwN0BnbWFpbC5jb206YTY5MzI2YzNmODRjNjEzZA=='
-  ),
-));
-
-$response = curl_exec($curl);
-
-curl_close($curl);
-echo $response;
+// You can download this file from here https://cdn.dataforseo.com/v3/examples/php/php_RestClient.zip
+require('RestClient.php');
+$api_url = 'https://api.dataforseo.com/';
+try {
+    // Instead of 'login' and 'password' use your credentials from https://app.dataforseo.com/api-dashboard
+    $client = new RestClient($api_url, null, 'dan.brincat07@gmail.com', 'a69326c3f84c613d');
+} catch (RestClientException $e) {
+    echo "\n";
+    print "HTTP code: {$e->getHttpCode()}\n";
+    print "Error code: {$e->getCode()}\n";
+    print "Message: {$e->getMessage()}\n";
+    print  $e->getTraceAsString();
+    echo "\n";
+    exit();
+}
+$post_array = array();
+// You can set only one task at a time
+$post_array[] = array(
+    "language_code" => "en",
+    "location_code" => 2840,
+    "keyword" => mb_convert_encoding("albert einstein", "UTF-8"),
+    "calculate_rectangles" => true
+);
+try {
+    // POST /v3/serp/google/organic/live/advanced
+    // in addition to 'google' and 'organic' you can also set other search engine and type parameters
+    // the full list of possible parameters is available in documentation
+    $result = $client->post('/v3/serp/google/organic/live/advanced', $post_array);
+    print_r($result);
+    // do something with post result
+} catch (RestClientException $e) {
+    echo "\n";
+    print "HTTP code: {$e->getHttpCode()}\n";
+    print "Error code: {$e->getCode()}\n";
+    print "Message: {$e->getMessage()}\n";
+    print  $e->getTraceAsString();
+    echo "\n";
+}
+$client = null;
 ?>
 
 
