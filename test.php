@@ -20,11 +20,11 @@ curl_setopt_array($curl, array(
     ),
 ));
 
-//$response = curl_exec($curl);
-$response = json_decode($curl);
+$response = curl_exec($curl);
+$data = json_decode($response);
 
 curl_close($curl);
 
-echo $response;
+echo $data;
 
 ?>
