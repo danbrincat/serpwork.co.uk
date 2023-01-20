@@ -28,7 +28,7 @@ var_dump($decoded);
 $encoded = json_encode($decoded);
 var_dump($encoded);*/
 
-curl_close($curl);
+//curl_close($curl);
 //echo $response;
 
 echo json_encode($response);
