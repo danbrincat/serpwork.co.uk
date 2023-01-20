@@ -20,17 +20,14 @@ curl_setopt_array($curl, array(
     ),
 ));
 
-$response = curl_exec($curl);
-
-/*$decoded = json_decode($response);
-var_dump($response);
-var_dump($decoded);
-$encoded = json_encode($decoded);
-var_dump($encoded);*/
+//$response = curl_exec($curl);
 
 //curl_close($curl);
 //echo $response;
 
-echo json_encode($response);
+$data = file_get_contents($curl);
+$response = json_decode($data, true);
+
+echo $response;
 
 ?>
