@@ -12,7 +12,7 @@ curl_setopt_array($curl, array(
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => 'POST',
     CURLOPT_POSTFIELDS =>'[
-        {"type":"web", "keywords":["weather forecast"], "language_code":"en"}
+        {"type":"web", "keywords":["weather forecast"], "language_code":"en", "date_from":"2023-01-01", "date_to":"2023-01-01", "location_code":2826}
     ]',
     CURLOPT_HTTPHEADER => array(
         'Authorization: Basic ZGFuLmJyaW5jYXQwN0BnbWFpbC5jb206YTY5MzI2YzNmODRjNjEzZA==',
