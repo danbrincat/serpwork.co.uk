@@ -22,13 +22,15 @@ curl_setopt_array($curl, array(
 
 $response = curl_exec($curl);
 
-$decoded = json_decode($response);
+/*$decoded = json_decode($response);
 var_dump($response);
 var_dump($decoded);
 $encoded = json_encode($decoded);
-var_dump($encoded);
+var_dump($encoded);*/
 
 curl_close($curl);
 //echo $response;
+
+echo json_encode($response);
 
 ?>
