@@ -1,4 +1,5 @@
 <?php
+
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
@@ -14,7 +15,7 @@ curl_setopt_array($curl, array(
         {"type":"web", "keywords":["weather forecast"], "language_code":"en"}
     ]',
     CURLOPT_HTTPHEADER => array(
-        'Authorization: Basic ZGFuLmJyaW5jYXQwN0BnbWFpbC5jb206cGFzc3dvcmQgYTY5MzI2YzNmODRjNjEzZA==',
+        'Authorization: Basic ZGFuLmJyaW5jYXQwN0BnbWFpbC5jb206YTY5MzI2YzNmODRjNjEzZA==',
         'Content-Type: application/json'
     ),
 ));
